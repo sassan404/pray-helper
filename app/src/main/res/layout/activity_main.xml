@@ -1,0 +1,183 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.lightsensorreader.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:layout_height="wrap_content"
+                android:maxHeight="50dp"
+                android:src="@raw/rukua"
+                android:contentDescription="@string/rukuu_photo_description" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.6"
+                android:gravity="center"
+                android:id="@+id/rukuu_number"
+                android:layout_marginBottom="10dp"
+                android:layout_height="match_parent"
+                android:text="@string/number_of_rukuu"
+                android:textSize="@android:dimen/thumbnail_height"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:src="@raw/sujud" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:rotation="-90"
+                android:src="@raw/arrow"
+                android:layout_weight="0.3"
+                android:id="@+id/first_arrow"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@raw/arrow"
+                android:rotation="-90"
+                android:layout_weight="0.3"
+                android:id="@+id/second_arrow"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_margin="10dp">
+            <TextView
+                android:id="@+id/light_value_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/light_value_label"
+                android:textSize="15sp"
+                android:labelFor="@id/light_value"/>
+
+            <TextView
+                android:id="@+id/light_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/light_value_default"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_margin="10dp">
+            <TextView
+                android:id="@+id/max_light_value_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/max_light_value_label"
+                android:textSize="15sp"
+                android:labelFor="@id/light_value"/>
+
+            <TextView
+                android:id="@+id/max_light_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/max_light_value_default"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_margin="10dp">
+            <TextView
+                android:id="@+id/lower_threshold_light_value_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lower_threshold_light_value_label"
+                android:textSize="15sp"
+                android:labelFor="@id/light_value"/>
+
+            <TextView
+                android:id="@+id/lower_threshold_light_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/max_light_value_default"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_margin="10dp">
+            <TextView
+                android:id="@+id/high_threshold_light_value_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/high_threshold_light_value_label"
+                android:textSize="15sp"
+                android:labelFor="@id/light_value"/>
+
+            <TextView
+                android:id="@+id/high_threshold_light_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/max_light_value_default"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_margin="10dp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/start_button"
+                android:id="@+id/start_button"
+                android:onClick="startCounting"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reset_button"
+                android:layout_margin="10dp"
+                android:id="@+id/reset_button"
+                android:onClick="resetCount"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
