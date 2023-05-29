@@ -1,14 +1,7 @@
 package com.example.lightsensorreader;
 
-import android.app.admin.DeviceAdminReceiver;
-import android.app.admin.DevicePolicyManager;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,30 +10,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lightsensorreader.LightSensor.LightSensor;
 
-import org.w3c.dom.Text;
-
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "mainActivity";
     private TextView lightValueTextView;
     private LightSensor lightSensor;
-
     private TextView rukuuNumber;
-
     private ImageView firstArrow;
     private ImageView secondArrow;
-
     private Button start;
-
     private Button reset;
-
-
     private TextView maxLightValue;
-
-    private  TextView lowerThresholdLightValue;
-    private  TextView higherThresholdLightValue;
-
-
-    private static final String TAG = "mainActivity";
+    private TextView lowerThresholdLightValue;
+    private TextView higherThresholdLightValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,25 +63,28 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         lightSensor.stop();
     }
+
     private void updateLightValue(float lightValue) {
         lightValueTextView.setText(String.valueOf(lightValue));
         if (LightChangeCount.startCount) {
-            LightChangeCount.updateChangeCount(lightValue, rukuuNumber, secondArrow);
+            LightChangeCount.changeDetection(lightValue, rukuuNumber, firstArrow, secondArrow);
         }
         maxLightValue.setText(String.valueOf(LightChangeCount.maxLightValue));
-        lowerThresholdLightValue.setText(String.valueOf(LightChangeCount.maxLightValue*LightChangeCount.lowerThreshold()));
-        higherThresholdLightValue.setText(String.valueOf(LightChangeCount.maxLightValue*LightChangeCount.upperThreshold()));
+        lowerThresholdLightValue.setText(String.valueOf(LightChangeCount.lowerThreshold()));
+        higherThresholdLightValue.setText(String.valueOf(LightChangeCount.upperThreshold()));
     }
 
-    public void startCounting(View view){
+    public void startCounting(View view) {
         LightChangeCount.startCount();
         rukuuNumber.setText(String.valueOf(LightChangeCount.changeCount));
+        firstArrow.setVisibility(View.INVISIBLE);
         secondArrow.setVisibility(View.INVISIBLE);
     }
 
-    public void resetCount(View view){
+    public void resetCount(View view) {
         LightChangeCount.resetCount();
         rukuuNumber.setText(String.valueOf(LightChangeCount.changeCount));
+        firstArrow.setVisibility(View.INVISIBLE);
         secondArrow.setVisibility(View.INVISIBLE);
     }
 }
