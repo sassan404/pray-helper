@@ -1,47 +1,61 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.lightsensorreader.MainActivity">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="10dp">
 
         <LinearLayout
+            android:id="@id/rukuu_indictor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_margin="10dp"
             android:gravity="center"
-            android:layout_margin="10dp">
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/rukuu_indictor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:layout_width="0dp"
-                android:layout_weight="0.3"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:contentDescription="@string/rukuu_photo_description"
                 android:maxHeight="50dp"
-                android:src="@raw/rukua"
-                android:contentDescription="@string/rukuu_photo_description" />
+                android:src="@raw/rukua" />
+
             <TextView
-                android:layout_width="0dp"
-                android:layout_weight="0.6"
-                android:gravity="center"
                 android:id="@+id/rukuu_number"
-                android:layout_marginBottom="10dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="@string/number_of_rukuu"
-                android:textSize="@android:dimen/thumbnail_height"/>
+                android:layout_marginBottom="10dp"
+                android:layout_weight="0.6"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:text="@string/number_of_rukuu" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/sujud_indicator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_margin="10dp"
             android:gravity="center"
-            android:layout_margin="10dp">
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/light_numbers"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rukuu_indictor">
+
 
             <ImageView
                 android:layout_width="0dp"
@@ -50,134 +64,182 @@
                 android:src="@raw/sujud" />
 
             <ImageView
+                android:id="@+id/first_arrow"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:rotation="-90"
-                android:src="@raw/arrow"
                 android:layout_weight="0.3"
-                android:id="@+id/first_arrow"/>
+                android:rotation="-90"
+                android:src="@raw/arrow" />
 
             <ImageView
+                android:id="@+id/second_arrow"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:src="@raw/arrow"
-                android:rotation="-90"
                 android:layout_weight="0.3"
-                android:id="@+id/second_arrow"/>
+                android:rotation="-90"
+                android:src="@raw/arrow" />
 
         </LinearLayout>
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/light_numbers"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:layout_margin="10dp">
+            app:layout_constraintBottom_toTopOf="@+id/max_light_numbers"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sujud_indicator"
+
+            tools:layout_conversion_absoluteHeight="19dp"
+            tools:layout_conversion_absoluteWidth="372dp"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="459dp">
+
             <TextView
                 android:id="@+id/light_value_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/light_value_label"
-                android:textSize="15sp"
-                android:labelFor="@id/light_value"/>
+                android:autoSizeTextType="uniform"
+                android:labelFor="@id/light_value"
+                android:text="@string/light_value_label" />
 
             <TextView
                 android:id="@+id/light_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/light_value_default"
-                android:textSize="15sp" />
+                android:autoSizeTextType="uniform"
+                android:text="@string/light_value_default" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+
+            android:id="@+id/max_light_numbers"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:layout_margin="10dp">
+            app:layout_constraintBottom_toTopOf="@+id/low_threshold_light_numbers"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/light_numbers"
+            tools:layout_conversion_absoluteHeight="19dp"
+            tools:layout_conversion_absoluteWidth="372dp"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="499dp">
+
             <TextView
                 android:id="@+id/max_light_value_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/max_light_value_label"
-                android:textSize="15sp"
-                android:labelFor="@id/light_value"/>
+                android:autoSizeTextType="uniform"
+                android:labelFor="@id/light_value"
+                android:text="@string/max_light_value_label" />
 
             <TextView
                 android:id="@+id/max_light_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/max_light_value_default"
-                android:textSize="15sp" />
+                android:autoSizeTextType="uniform"
+                android:text="@string/max_light_value_default" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/low_threshold_light_numbers"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:layout_margin="10dp">
+            app:layout_constraintBottom_toTopOf="@+id/high_threshold_light_numbers"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/max_light_numbers"
+            tools:layout_conversion_absoluteHeight="19dp"
+            tools:layout_conversion_absoluteWidth="372dp"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="538dp">
+
             <TextView
                 android:id="@+id/lower_threshold_light_value_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/lower_threshold_light_value_label"
-                android:textSize="15sp"
-                android:labelFor="@id/light_value"/>
+                android:autoSizeTextType="uniform"
+                android:labelFor="@id/light_value"
+                android:text="@string/lower_threshold_light_value_label" />
 
             <TextView
                 android:id="@+id/lower_threshold_light_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/max_light_value_default"
-                android:textSize="15sp" />
+                android:autoSizeTextType="uniform"
+                android:text="@string/max_light_value_default" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/high_threshold_light_numbers"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:layout_margin="10dp">
+            app:layout_constraintBottom_toTopOf="@+id/buttons"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/low_threshold_light_numbers"
+            tools:layout_conversion_absoluteHeight="6dp"
+            tools:layout_conversion_absoluteWidth="372dp"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="577dp">
+
             <TextView
                 android:id="@+id/high_threshold_light_value_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/high_threshold_light_value_label"
-                android:textSize="15sp"
-                android:labelFor="@id/light_value"/>
+                android:autoSizeTextType="uniform"
+                android:labelFor="@id/light_value"
+                android:text="@string/high_threshold_light_value_label" />
 
             <TextView
                 android:id="@+id/high_threshold_light_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/max_light_value_default"
-                android:textSize="15sp" />
+                android:autoSizeTextType="uniform"
+                android:text="@string/max_light_value_default" />
 
         </LinearLayout>
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/buttons"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_margin="10dp"
             android:gravity="center"
-            android:layout_margin="10dp">
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/high_threshold_light_numbers"
+            tools:layout_conversion_absoluteHeight="0dp"
+            tools:layout_conversion_absoluteWidth="372dp"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="603dp">
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@string/start_button"
                 android:id="@+id/start_button"
-                android:onClick="startCounting"/>
-            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/reset_button"
                 android:layout_margin="10dp"
+                android:onClick="startCounting"
+                android:text="@string/start_button" />
+
+            <Button
                 android:id="@+id/reset_button"
-                android:onClick="resetCount"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:onClick="resetCount"
+                android:text="@string/reset_button" />
         </LinearLayout>
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>
