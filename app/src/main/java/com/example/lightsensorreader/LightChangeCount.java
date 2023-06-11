@@ -14,6 +14,8 @@ public class LightChangeCount {
     public static boolean isUnderLowThreshold = false;
     public static CountState sajdaCount = CountState.ZERO;
 
+    private static boolean isUpdateScheduled = false;
+
     private static double naiveLowerThreshold() {
         double for600 = 0.85;
         double for30 = 5.0 / 30.0;
@@ -73,6 +75,7 @@ public class LightChangeCount {
             @Override
             public void run() {
                 changeCount++;
+                isUnderLowThreshold = false;
                 rukuuNumber.setText(String.valueOf(changeCount));
                 firstArrow.setVisibility(View.INVISIBLE);
                 secondArrow.setVisibility(View.INVISIBLE);
@@ -89,7 +92,10 @@ public class LightChangeCount {
                 firstArrow.setVisibility(View.VISIBLE);
                 secondArrow.setVisibility(View.VISIBLE);
                 sajdaCount = CountState.ZERO;
-                handler.postDelayed(updateCountRunnable, 5000);
+                if (!isUpdateScheduled) {
+                    isUpdateScheduled = true;
+                    handler.postDelayed(updateCountRunnable, 20000);
+                }
                 break;
             default:
                 break;
