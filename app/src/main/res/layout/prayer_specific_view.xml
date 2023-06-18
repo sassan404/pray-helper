@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.example.lightsensorreader.PrayerSpecificView">
+
+    <LinearLayout
+        android:id="@id/rukuu_indictor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/rukuu_indictor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:contentDescription="@string/rukuu_photo_description"
+            android:maxHeight="50dp"
+            android:src="@raw/rukua" />
+
+        <TextView
+            android:id="@+id/rukuu_number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="0.6"
+            android:autoSizeTextType="uniform"
+            android:gravity="center"
+            android:text="@string/number_of_rukuu" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sujud_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rukuu_indictor">
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:src="@raw/sujud" />
+
+        <ImageView
+            android:id="@+id/first_arrow"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:rotation="-90"
+            android:src="@raw/arrow" />
+
+        <ImageView
+            android:id="@+id/second_arrow"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:rotation="-90"
+            android:src="@raw/arrow" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

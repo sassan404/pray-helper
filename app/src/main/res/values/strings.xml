@@ -8,6 +8,6 @@
     <string name="reset_button">Reset</string>
     <string name="max_light_value_label">Max Light Value: </string>
     <string name="max_light_value_default">0</string>
-    <string name="lower_threshold_light_value_label">"Low Theshold: "</string>
-    <string name="high_threshold_light_value_label">"High Threshold:  "</string>
+    <string name="lower_threshold_light_value_label">Low Theshold: </string>
+    <string name="high_threshold_light_value_label">High Threshold:  </string>
 </resources>
