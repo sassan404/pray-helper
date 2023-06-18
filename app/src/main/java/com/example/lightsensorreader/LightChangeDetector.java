@@ -115,12 +115,10 @@ public class LightChangeDetector extends ConstraintLayout {
 
     public void startCount() {
         resetCount();
-
         startCount = true;
     }
 
     public void resetCount() {
-
         isUnderLowThreshold = false;
         maxLightValue = 1;
         startCount = false;

@@ -48,23 +48,24 @@ public class PrayerSpecificView extends ConstraintLayout {
     }
 
     public void startCounting() {
-        rukuuNumber.setText(String.valueOf(changeCount));
-        firstArrow.setVisibility(View.INVISIBLE);
-        secondArrow.setVisibility(View.INVISIBLE);
+        resetCount();
 
     }
 
     public void resetCount() {
+        changeCount = 1;
         rukuuNumber.setText(String.valueOf(changeCount));
         firstArrow.setVisibility(View.INVISIBLE);
         secondArrow.setVisibility(View.INVISIBLE);
         sajdaCount = CountState.ZERO;
-        changeCount = 1;
+
     }
 
     public void updatePrayerCounter() {
         Runnable updateCountRunnable = () -> {
             changeCount++;
+            isUpdateScheduled = false;
+            sajdaCount = CountState.ZERO;
             rukuuNumber.setText(String.valueOf(changeCount));
             firstArrow.setVisibility(View.INVISIBLE);
             secondArrow.setVisibility(View.INVISIBLE);

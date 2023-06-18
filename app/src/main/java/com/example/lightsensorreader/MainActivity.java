@@ -51,12 +51,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startCounting(View view) {
-        lightChangeDetector.startCount();
         prayerSpecificView.startCounting();
+        lightChangeDetector.startCount();
     }
 
     public void resetCount(View view) {
-        lightChangeDetector.resetCount();
         prayerSpecificView.resetCount();
+        lightChangeDetector.resetCount();
     }
 }
