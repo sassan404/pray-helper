@@ -80,7 +80,6 @@ public class PrayerSpecificView extends ConstraintLayout {
                 sajdaCount = CountState.TWO;
                 firstArrow.setVisibility(View.VISIBLE);
                 secondArrow.setVisibility(View.VISIBLE);
-                sajdaCount = CountState.ZERO;
                 if (!isUpdateScheduled) {
                     isUpdateScheduled = true;
                     handler.postDelayed(updateCountRunnable, 20000);
