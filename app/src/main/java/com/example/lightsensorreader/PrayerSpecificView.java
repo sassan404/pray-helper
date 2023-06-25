@@ -53,6 +53,7 @@ public class PrayerSpecificView extends ConstraintLayout {
     }
 
     public void resetCount() {
+        handler.removeCallbacksAndMessages(null);
         changeCount = 1;
         rukuuNumber.setText(String.valueOf(changeCount));
         firstArrow.setVisibility(View.INVISIBLE);
