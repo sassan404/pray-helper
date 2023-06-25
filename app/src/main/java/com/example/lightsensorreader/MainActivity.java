@@ -52,8 +52,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startCounting(View view) {
-        prayerSpecificView.startCounting();
-        lightChangeDetector.startCount();
+        showWarningDialogue();
     }
 
     public void resetCount(View view) {
@@ -70,7 +69,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Add the buttons
         builder.setPositiveButton("Start", (dialog, id) -> {
-            // User clicked OK button
+            prayerSpecificView.startCounting();
+            lightChangeDetector.startCount();
         });
         builder.setNegativeButton("Cancel", (dialog, id) -> {
             // User cancelled the dialog
@@ -83,5 +83,6 @@ public class MainActivity extends AppCompatActivity {
 //
 //        dialog.show();
         AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
