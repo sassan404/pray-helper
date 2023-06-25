@@ -1,5 +1,6 @@
 package com.example.lightsensorreader;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
 
@@ -58,5 +59,29 @@ public class MainActivity extends AppCompatActivity {
     public void resetCount(View view) {
         prayerSpecificView.resetCount();
         lightChangeDetector.resetCount();
+    }
+
+    private void showWarningDialogue() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage("This app works well on light values between 20 and 800; make sure that the light intensity in the room is between those two values")
+                .setTitle("Limitations");
+
+        // Add the buttons
+        builder.setPositiveButton("Start", (dialog, id) -> {
+            // User clicked OK button
+        });
+        builder.setNegativeButton("Cancel", (dialog, id) -> {
+            // User cancelled the dialog
+        });
+//        Dialog dialog = new Dialog(this, R.style.DialogueStyle);
+//        dialog.setContentView(R.layout.warning_dialog);
+//
+//        dialog.getWindow().setBackgroundDrawableResource(R.drawable.warning_dialog_background);
+//
+//
+//        dialog.show();
+        AlertDialog dialog = builder.create();
     }
 }
