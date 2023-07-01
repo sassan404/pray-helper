@@ -1,4 +1,4 @@
-package com.example.lightsensorreader;
+package com.sassan.lightsensorreader;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.lightsensorreader.LightSensor.LightSensor;
+import com.sassan.lightsensorreader.LightSensor.LightSensor;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.lightsensorreader;
+package com.sassan.lightsensorreader;
 
 import android.content.Context;
 import android.util.AttributeSet;

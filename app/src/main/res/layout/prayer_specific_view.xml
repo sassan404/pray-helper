@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.example.lightsensorreader.PrayerSpecificView">
+    tools:context="com.sassan.lightsensorreader.PrayerSpecificView">
 
     <LinearLayout
         android:id="@id/rukuu_indictor"
@@ -20,7 +20,7 @@
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:layout_weight="0.3"
             android:contentDescription="@string/rukuu_photo_description"
             android:maxHeight="50dp"
@@ -52,7 +52,7 @@
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:layout_weight="0.3"
             android:src="@raw/sujud" />
 
