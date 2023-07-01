@@ -1,4 +1,4 @@
-package com.example.lightsensorreader.LightSensor;
+package com.sassan.lightsensorreader.LightSensor;
 
 import android.content.Context;
 import android.hardware.Sensor;
@@ -12,10 +12,6 @@ public class LightSensor implements SensorEventListener {
     private Sensor lightSensor;
     private float lightValue;
     private LightSensorListener listener;
-
-    public interface LightSensorListener {
-        void onLightSensorChanged(float lightValue);
-    }
 
     public LightSensor(Context context) {
         sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
@@ -49,5 +45,9 @@ public class LightSensor implements SensorEventListener {
 
     public float getLightValue() {
         return lightValue;
+    }
+
+    public interface LightSensorListener {
+        void onLightSensorChanged(float lightValue);
     }
 }

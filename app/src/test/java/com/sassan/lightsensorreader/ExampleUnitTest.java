@@ -1,4 +1,4 @@
-package com.example.lightsensorreader;
+package com.sassan.lightsensorreader;
 
 import static org.junit.Assert.assertEquals;
 

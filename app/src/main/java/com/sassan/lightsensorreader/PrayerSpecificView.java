@@ -1,4 +1,4 @@
-package com.example.lightsensorreader;
+package com.sassan.lightsensorreader;
 
 import android.content.Context;
 import android.os.Handler;
@@ -19,6 +19,14 @@ public class PrayerSpecificView extends ConstraintLayout {
     private ImageView secondArrow;
     private CountState sajdaCount = CountState.ZERO;
     private int changeCount = 1;
+    Runnable updateCountRunnable = () -> {
+        changeCount++;
+        isUpdateScheduled = false;
+        sajdaCount = CountState.ZERO;
+        rukuuNumber.setText(String.valueOf(changeCount));
+        firstArrow.setVisibility(View.INVISIBLE);
+        secondArrow.setVisibility(View.INVISIBLE);
+    };
 
     public PrayerSpecificView(Context context) {
         super(context);
@@ -53,7 +61,7 @@ public class PrayerSpecificView extends ConstraintLayout {
     }
 
     public void resetCount() {
-        handler.removeCallbacksAndMessages(null);
+        handler.removeCallbacksAndMessages(updateCountRunnable);
         changeCount = 1;
         rukuuNumber.setText(String.valueOf(changeCount));
         firstArrow.setVisibility(View.INVISIBLE);
@@ -63,14 +71,7 @@ public class PrayerSpecificView extends ConstraintLayout {
     }
 
     public void updatePrayerCounter() {
-        Runnable updateCountRunnable = () -> {
-            changeCount++;
-            isUpdateScheduled = false;
-            sajdaCount = CountState.ZERO;
-            rukuuNumber.setText(String.valueOf(changeCount));
-            firstArrow.setVisibility(View.INVISIBLE);
-            secondArrow.setVisibility(View.INVISIBLE);
-        };
+
         switch (sajdaCount) {
             case ZERO:
                 sajdaCount = CountState.ONE;

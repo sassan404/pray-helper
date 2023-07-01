@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.lightsensorreader'
+    namespace 'com.sassan.lightsensorreader'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.lightsensorreader"
+        applicationId "com.sassan.lightsensorreader"
         minSdk 26
         targetSdk 33
         versionCode 1
