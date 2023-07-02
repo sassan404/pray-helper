@@ -1,4 +1,4 @@
-package com.sassan.lightsensorreader.LightSensor;
+package com.sassan.salathelper.LightSensor;
 
 import android.content.Context;
 import android.hardware.Sensor;

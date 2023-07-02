@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.sassan.lightsensorreader'
+    namespace 'com.sassan.salathelper'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.sassan.lightsensorreader"
+        applicationId "com.sassan.salathelper"
         minSdk 26
         targetSdk 33
         versionCode 1

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">light sensor reader</string>
+    <string name="app_name">Salat Helper</string>
     <string name="number_of_rukuu">0</string>
     <string name="rukuu_photo_description">Photo of person doing Rukuu</string>
     <string name="light_value_label">Light value:</string>
