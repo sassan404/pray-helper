@@ -1,4 +1,4 @@
-package com.sassan.lightsensorreader;
+package com.sassan.salathelper;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -6,7 +6,8 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.sassan.lightsensorreader.LightSensor.LightSensor;
+import com.sassan.salathelper.LightSensor.LightSensor;
+//import com.sassan.salathelper.ProximitySensor.ProximitySensor;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -4,7 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sassan.lightsensorreader.MainActivity">
+    tools:context="com.sassan.salathelper.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout3"
@@ -14,7 +14,7 @@
         android:padding="10dp">
 
 
-        <com.sassan.lightsensorreader.PrayerSpecificView
+        <com.sassan.salathelper.PrayerSpecificView
             android:id="@+id/prayer_specific_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.sassan.lightsensorreader.LightChangeDetector
+        <com.sassan.salathelper.LightChangeDetector
             android:id="@+id/light_change_detector"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
