@@ -7,13 +7,15 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.sassan.salathelper.LightSensor.LightSensor;
-//import com.sassan.salathelper.ProximitySensor.ProximitySensor;
+import com.sassan.salathelper.ProximitySensor.ProximitySensor;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "mainActivity";
 
     private LightSensor lightSensor;
+
+    private ProximitySensor proximitySensor;
 
     private LightChangeDetector lightChangeDetector;
 
@@ -31,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         lightSensor = new LightSensor(this);
-        lightSensor.setListener(this::changeApplication);
+        proximitySensor = new ProximitySensor(this);
+        proximitySensor.setListener(this::changeApplication);
     }
 
     void changeApplication(float lightValue) {
@@ -44,12 +47,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         lightSensor.start();
+        proximitySensor.start();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         lightSensor.stop();
+        proximitySensor.stop();
     }
 
     public void startCounting(View view) {
