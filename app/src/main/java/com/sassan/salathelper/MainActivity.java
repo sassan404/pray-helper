@@ -65,15 +65,15 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setMessage("This app works well on light values between 20 and 800; make sure that the light intensity in the room is between those two values")
-                .setTitle("Limitations");
+        builder.setMessage(R.string.light_warning_message)
+                .setTitle(R.string.light_warning_message_title);
 
         // Add the buttons
-        builder.setPositiveButton("Start", (dialog, id) -> {
+        builder.setPositiveButton(R.string.light_warning_message_start, (dialog, id) -> {
             prayerSpecificView.startCounting();
             lightChangeDetector.startCount();
         });
-        builder.setNegativeButton("Cancel", (dialog, id) -> {
+        builder.setNegativeButton(R.string.light_warning_message_cancel, (dialog, id) -> {
             // User cancelled the dialog
         });
 //        Dialog dialog = new Dialog(this, R.style.DialogueStyle);
