@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">المساعد في الصلاة</string>
+    <string name="number_of_rukuu">0</string>
+    <string name="rukuu_photo_description">صورة شخص وهو راكع</string>
+    <string name="light_value_label">مستوى الضوء: </string>
+    <string name="light_value_default">0</string>
+    <string name="start_button">ابدأ</string>
+    <string name="reset_button">توقف</string>
+    <string name="max_light_value_label">المستوى الاقصى للضوء: </string>
+    <string name="max_light_value_default">0</string>
+    <string name="lower_threshold_light_value_label">العتبة المنخفضة: </string>
+    <string name="high_threshold_light_value_label">العتبة المرتفعة: </string>
+    <string name="light_warning_message_title">القيود</string>
+    <string name="light_warning_message_start">ابدأ</string>
+    <string name="light_warning_message_cancel">الغاء</string>
+    <string name="light_warning_message">يعمل هذا التطبيق بشكل جيد على قيم الضوء بين 20 و 800؛ تأكد من أن كثافة الضوء في الغرفة تتراوح بين هاتين القيمتين.</string>
+
+</resources>

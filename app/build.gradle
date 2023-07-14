@@ -10,8 +10,8 @@ android {
         applicationId "com.sassan.salathelper"
         minSdk 26
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        versionCode 4
+        versionName "1.4-2023-07-15"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

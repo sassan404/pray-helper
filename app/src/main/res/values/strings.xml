@@ -10,4 +10,8 @@
     <string name="max_light_value_default">0</string>
     <string name="lower_threshold_light_value_label">Low Theshold: </string>
     <string name="high_threshold_light_value_label">High Threshold:  </string>
+    <string name="light_warning_message_title">Limitations</string>
+    <string name="light_warning_message_start">Start</string>
+    <string name="light_warning_message_cancel">Cancel</string>
+    <string name="light_warning_message">This app works well on light values between 20 and 800; make sure that the light intensity in the room is between those two values</string>
 </resources>

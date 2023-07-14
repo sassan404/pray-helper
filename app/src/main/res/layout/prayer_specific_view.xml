@@ -10,7 +10,7 @@
         android:id="@id/rukuu_indictor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/rukuu_indictor"
@@ -20,7 +20,7 @@
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             android:layout_weight="0.3"
             android:contentDescription="@string/rukuu_photo_description"
             android:maxHeight="50dp"
@@ -41,7 +41,7 @@
         android:id="@+id/sujud_indicator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,7 +52,7 @@
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             android:layout_weight="0.3"
             android:src="@raw/sujud" />
 
