@@ -84,7 +84,7 @@ public class PrayerSpecificView extends ConstraintLayout {
                 secondArrow.setVisibility(View.VISIBLE);
                 if (!isUpdateScheduled) {
                     isUpdateScheduled = true;
-                    handler.postDelayed(updateCountRunnable, 20000);
+                    handler.postDelayed(updateCountRunnable, 15000);
                 }
                 break;
             default:
