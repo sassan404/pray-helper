@@ -3,11 +3,11 @@ package com.sassan.salathelper;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.sassan.salathelper.LightSensor.LightSensor;
-//import com.sassan.salathelper.ProximitySensor.ProximitySensor;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     public void resetCount(View view) {
         prayerSpecificView.resetCount();
         lightChangeDetector.resetCount();
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
     private void showWarningDialogue() {
@@ -72,17 +73,12 @@ public class MainActivity extends AppCompatActivity {
         builder.setPositiveButton(R.string.light_warning_message_start, (dialog, id) -> {
             prayerSpecificView.startCounting();
             lightChangeDetector.startCount();
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         });
         builder.setNegativeButton(R.string.light_warning_message_cancel, (dialog, id) -> {
             // User cancelled the dialog
         });
-//        Dialog dialog = new Dialog(this, R.style.DialogueStyle);
-//        dialog.setContentView(R.layout.warning_dialog);
-//
-//        dialog.getWindow().setBackgroundDrawableResource(R.drawable.warning_dialog_background);
-//
-//
-//        dialog.show();
+
         AlertDialog dialog = builder.create();
         dialog.show();
     }

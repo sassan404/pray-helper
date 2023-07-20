@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.sassan.salathelper"
-        minSdk 26
+        minSdk 22
         targetSdk 33
         versionCode 5
         versionName "2023.07.21"
