@@ -1,19 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">المساعد في الصلاة</string>
     <string name="number_of_rukuu">0</string>
     <string name="rukuu_photo_description">صورة شخص وهو راكع</string>
     <string name="light_value_label">مستوى الضوء: </string>
     <string name="light_value_default">0</string>
-    <string name="start_button">ابدأ</string>
     <string name="reset_button">توقف</string>
-    <string name="max_light_value_label">المستوى الاقصى للضوء: </string>
-    <string name="max_light_value_default">0</string>
-    <string name="lower_threshold_light_value_label">العتبة المنخفضة: </string>
-    <string name="high_threshold_light_value_label">العتبة المرتفعة: </string>
-    <string name="light_warning_message_title">القيود</string>
-    <string name="light_warning_message_start">ابدأ</string>
-    <string name="light_warning_message_cancel">الغاء</string>
-    <string name="light_warning_message">يعمل هذا التطبيق بشكل جيد على قيم الضوء بين 20 و 800؛ تأكد من أن كثافة الضوء في الغرفة تتراوح بين هاتين القيمتين.</string>
-
+    <string name="manual_mode_active">أنت تستخدم الوضع اليدوي</string>
+    <string name="light_sensor_mode_active">أنت تستخدم حساس الضوء</string>
+    <string name="proximity_sensor_mode_active">أنت تستخدم حساس الاقتراب</string>
+    <string name="manual_mode_description">يتطلب الوضع اليدوي منك تسجيل السجدة يدوياً. على الصفحة التالية، سترى مربعاً أزرق اللون. ما عليك سوى الضغط في أي مكان داخل المربع الأزرق بإصبعك لتسجيل السجدة.</string>
+    <string name="light_mode_description">وضع حساس الضوء يكتشف السجدة بشكل تلقائي. يستخدم تغيرات شدة الضوء لاكتشاف السجدة. لاستخدام هذا الوضع بفاعلية، ضع الهاتف أسفلك عندما تنحني للسجدة بحيث يتم إخفاءه بظلك. يرجى ملاحظة أن هذا الوضع قد يكون له بعض القيود، خاصة إذا كان الضوء يأتي من جميع الاتجاهات أو إذا كان الغرفة مشرقة جدًا أو مظلمة جدًا.</string>
+    <string name="proximity_mode_description">وضع حساس الاقتراب يكتشف السجدة بشكل تلقائي. يستخدم المسافة بينك وبين الهاتف لاكتشاف السجدة. يُرجى ملاحظة أن في معظم الأجهزة، يكتشف حساس الاقتراب الأجسام ضمن نطاق تقريبي يبلغ حوالي 5 سم من الهاتف. لاستخدام هذا الوضع بفاعلية، ضع الهاتف أسفلك عندما تنحني للسجدة بحيث يكون أنفك قريبًا جدًا من الشاشة. يجب أن تكون قريبًا من الهاتف حتى يعمل بشكل صحيح.</string>
+    <string name="manual_mode_title">وضع يدوي</string>
+    <string name="light_mode_title">وضع حساس الضوء التلقائي</string>
+    <string name="light_mode_title_disabled">وضع حساس الضوء التلقائي (لا يمكنك استخدام هذا الوضع على هاتفك)</string>
+    <string name="proximity_mode_title">وضع حساس الاقتراب التلقائي</string>
+    <string name="proximity_mode_title_disabled">وضع حساس الاقتراب التلقائي (لا يمكنك استخدام هذا الوضع على هاتفك)</string>
+    <string name="no_mode_chosen">لم تختار وضعاً بعد.</string>
+    <string name="proceed_mode">تابع</string>
+    <string name="mode_placeholder">""</string>
+    <string name="sujud_image_description">صورة سُجود</string>
+    <string name="arrow_image_description">سهم يُمثّل سجدة</string>
+    <string name="select_mode_menu_item">اختر الوضع</string>
 </resources>

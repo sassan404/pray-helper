@@ -1,21 +1,26 @@
 package com.sassan.salathelper;
 
-import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.WindowManager;
+import android.widget.Button;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
-import com.sassan.salathelper.LightSensor.LightSensor;
+import com.sassan.salathelper.sensors.LightSensor;
+import com.sassan.salathelper.sensors.ProximitySensor;
+import com.sassan.salathelper.sensors.SensorImplementation;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "mainActivity";
+    private SensorImplementation usedSensor;
 
-    private LightSensor lightSensor;
-
-    private LightChangeDetector lightChangeDetector;
+    private ChangeDetector changeDetector;
 
     private PrayerSpecificView prayerSpecificView;
 
@@ -23,19 +28,41 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Intent intent = getIntent();
+        SensorSelectionActivity.Mode mode = (SensorSelectionActivity.Mode) intent.getSerializableExtra("mode");
+
         setContentView(R.layout.activity_main);
 
         prayerSpecificView = findViewById(R.id.prayer_specific_view);
 
-        lightChangeDetector = findViewById(R.id.light_change_detector);
+        changeDetector = findViewById(R.id.light_change_detector);
+
+        Button resetButton = findViewById(R.id.reset_button);
+
+        resetButton.setOnClickListener(v -> resetCount());
 
 
-        lightSensor = new LightSensor(this);
-        lightSensor.setListener(this::changeApplication);
+        switch (mode) {
+            case MANUAL:
+                prayerSpecificView.setBackground(ContextCompat.getDrawable(this, R.drawable.border));
+                prayerSpecificView.setOnClickListener(view -> prayerSpecificView.updatePrayerCounter());
+            case LIGHT:
+                usedSensor = new LightSensor(this);
+                usedSensor.setListener(this::changeApplication);
+                break;
+            case PROXIMITY:
+                usedSensor = new ProximitySensor(this);
+                usedSensor.setListener(this::changeApplication);
+                break;
+        }
+
+        changeDetector.setMode(mode);
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
     void changeApplication(float lightValue) {
-        if (lightChangeDetector.updateLightValue(lightValue)) {
+        if (changeDetector.updateSensorValue(lightValue)) {
             prayerSpecificView.updatePrayerCounter();
         }
     }
@@ -43,43 +70,35 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        lightSensor.start();
+        usedSensor.start();
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        lightSensor.stop();
-    }
-
-    public void startCounting(View view) {
-        showWarningDialogue();
-    }
-
-    public void resetCount(View view) {
-        prayerSpecificView.resetCount();
-        lightChangeDetector.resetCount();
+        usedSensor.stop();
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
-    private void showWarningDialogue() {
+    public void resetCount() {
+        prayerSpecificView.resetCount();
+        changeDetector.resetCount();
+    }
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.select_mode || item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
-        builder.setMessage(R.string.light_warning_message)
-                .setTitle(R.string.light_warning_message_title);
-
-        // Add the buttons
-        builder.setPositiveButton(R.string.light_warning_message_start, (dialog, id) -> {
-            prayerSpecificView.startCounting();
-            lightChangeDetector.startCount();
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        });
-        builder.setNegativeButton(R.string.light_warning_message_cancel, (dialog, id) -> {
-            // User cancelled the dialog
-        });
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_activity_menu, menu);
+        return true;
     }
 }

@@ -1,0 +1,35 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android"  android:enterFadeDuration="@android:integer/config_shortAnimTime" android:exitFadeDuration="@android:integer/config_shortAnimTime">
+
+    <!-- Disabled state -->
+    <item android:state_enabled="false">
+        <shape>
+            <solid android:color="#2D3446" /> <!-- Grey color for disabled state -->
+            <corners android:radius="3dp" />
+        </shape>
+    </item>
+    <item
+        android:state_checked="false">
+        <shape>
+            <gradient
+                android:startColor="#E4001563"
+                android:centerColor="#E4001F8F"
+                android:endColor="#D3227E00"
+                android:gradientRadius="30dp"
+                />
+            <corners
+                android:radius="3dp" />
+        </shape>
+    </item>
+
+    <item android:state_checked="true">
+        <shape>
+            <gradient
+                android:startColor="#A600238C"
+                android:centerColor="#187000"
+                android:endColor="#005F02"
+                />
+            <corners
+                android:radius="3dp" />
+        </shape>
+    </item>
+</selector>

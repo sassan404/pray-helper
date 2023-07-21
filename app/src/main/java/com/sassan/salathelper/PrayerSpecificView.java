@@ -19,7 +19,7 @@ public class PrayerSpecificView extends ConstraintLayout {
     private ImageView secondArrow;
     private CountState sajdaCount = CountState.ZERO;
     private int changeCount = 1;
-    Runnable updateCountRunnable = () -> {
+    private final Runnable updateCountRunnable = () -> {
         changeCount++;
         isUpdateScheduled = false;
         sajdaCount = CountState.ZERO;
@@ -30,20 +30,20 @@ public class PrayerSpecificView extends ConstraintLayout {
 
     public PrayerSpecificView(Context context) {
         super(context);
-        init(context, null, 0);
+        init(context);
     }
 
     public PrayerSpecificView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context, attrs, 0);
+        init(context);
     }
 
     public PrayerSpecificView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init(context, attrs, defStyle);
+        init(context);
     }
 
-    private void init(Context context, AttributeSet attrs, int defStyle) {
+    private void init(Context context) {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.prayer_specific_view, this, true);
@@ -53,11 +53,7 @@ public class PrayerSpecificView extends ConstraintLayout {
 
         secondArrow = findViewById(R.id.second_arrow);
 
-    }
-
-    public void startCounting() {
         resetCount();
-
     }
 
     public void resetCount() {
