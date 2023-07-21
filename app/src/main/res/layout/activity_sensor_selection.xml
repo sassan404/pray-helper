@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SensorSelectionActivity">
+
+
+    <!-- RadioGroup to hold the options -->
+    <RadioGroup
+        android:id="@+id/radioGroupOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_margin="5dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/textViewUserChoice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Option 1: Manually -->
+        <RadioButton
+            android:id="@+id/radioButtonManual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radio_button_background"
+            android:button="@drawable/empty_drawable"
+            android:gravity="center"
+            android:padding="30dp"
+            android:text="@string/manual_mode_title"
+            android:textColor="@color/radio_button_text_color" />
+
+        <!-- Option 2: Automatically with Light Sensor -->
+        <RadioButton
+            android:id="@+id/radioButtonAutoLightSensor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radio_button_background"
+            android:button="@drawable/empty_drawable"
+            android:gravity="center"
+            android:padding="30dp"
+            android:text="@string/light_mode_title"
+            android:textColor="@color/radio_button_text_color" />
+
+        <!-- Option 3: Automatically with Proximity Sensor -->
+        <RadioButton
+            android:id="@+id/radioButtonAutoProximitySensor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radio_button_background"
+            android:button="@drawable/empty_drawable"
+            android:gravity="center"
+            android:padding="30dp"
+            android:text="@string/proximity_mode_title"
+            android:textColor="@color/radio_button_text_color" />
+    </RadioGroup>
+
+    <!-- TextView to show the user's choice -->
+    <TextView
+        android:id="@+id/textViewUserChoice"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/radioGroupOptions"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:text="@string/no_mode_chosen"
+        app:layout_constraintBottom_toTopOf="@id/buttonProceed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioGroupOptions" />
+
+    <!-- Button to proceed to the next activity -->
+    <Button
+        android:id="@+id/buttonProceed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewUserChoice"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:enabled="false"
+        android:text="@string/proceed_mode"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewUserChoice" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
