@@ -3,6 +3,7 @@ package com.sassan.salathelper;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -52,6 +53,7 @@ public class SensorSelectionActivity extends AppCompatActivity {
         proximitySensorMode.setOnClickListener(view -> proximitySensorMode.setChecked(true));
 
         modeDescription = findViewById(R.id.textViewUserChoice);
+        modeDescription.setMovementMethod(new ScrollingMovementMethod());
 
         proceedButton = findViewById(R.id.buttonProceed);
         proceedButton.setOnClickListener(view -> startMainActivity());
