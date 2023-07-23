@@ -65,6 +65,7 @@
         android:layout_below="@id/radioGroupOptions"
         android:layout_margin="20dp"
         android:gravity="center"
+        android:scrollbars="vertical"
         android:text="@string/no_mode_chosen"
         app:layout_constraintBottom_toTopOf="@id/buttonProceed"
         app:layout_constraintEnd_toEndOf="parent"

@@ -2,8 +2,8 @@
     <string name="app_name">Salat Helper</string>
     <string name="number_of_rukuu">0</string>
     <string name="rukuu_photo_description">Photo of person doing Rukuu</string>
-    <string name="light_value_label">Light value:</string>
-    <string name="light_value_default">0</string>
+    <string name="sensor_value_label">Sensor reading: </string>
+    <string name="sensor_value_default">0</string>
     <string name="reset_button">Reset</string>
     <string name="manual_mode_active">You are using the manual mode</string>
     <string name="light_sensor_mode_active">You are using the light sensor</string>

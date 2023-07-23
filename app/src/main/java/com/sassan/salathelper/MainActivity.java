@@ -11,6 +11,9 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 
 import com.sassan.salathelper.sensors.LightSensor;
 import com.sassan.salathelper.sensors.ProximitySensor;
@@ -46,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             case MANUAL:
                 prayerSpecificView.setBackground(ContextCompat.getDrawable(this, R.drawable.border));
                 prayerSpecificView.setOnClickListener(view -> prayerSpecificView.updatePrayerCounter());
+                break;
             case LIGHT:
                 usedSensor = new LightSensor(this);
                 usedSensor.setListener(this::changeApplication);
@@ -59,6 +63,16 @@ public class MainActivity extends AppCompatActivity {
         changeDetector.setMode(mode);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        WindowInsetsControllerCompat windowInsetsController =
+                WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+        // Configure the behavior of the hidden system bars.
+        windowInsetsController.setSystemBarsBehavior(
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        );
+        windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
+
+
     }
 
     void changeApplication(float lightValue) {
@@ -70,14 +84,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        usedSensor.start();
+        if (usedSensor != null) usedSensor.start();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        usedSensor.stop();
+        if (usedSensor != null) usedSensor.stop();
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 

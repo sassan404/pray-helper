@@ -9,6 +9,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 
 
 public class SensorSelectionActivity extends AppCompatActivity {
@@ -52,6 +55,15 @@ public class SensorSelectionActivity extends AppCompatActivity {
 
         proceedButton = findViewById(R.id.buttonProceed);
         proceedButton.setOnClickListener(view -> startMainActivity());
+
+        WindowInsetsControllerCompat windowInsetsController =
+                WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+        // Configure the behavior of the hidden system bars.
+        windowInsetsController.setSystemBarsBehavior(
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        );
+        windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
+
     }
 
     public void onModeSelection(RadioGroup radioGroup, int checkedId) {
