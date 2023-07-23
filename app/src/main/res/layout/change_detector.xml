@@ -11,13 +11,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/mode_placeholder"
-        app:layout_constraintBottom_toTopOf="@+id/light_numbers"
+        app:layout_constraintBottom_toTopOf="@+id/sensor_number_container"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/light_numbers"
+        android:id="@+id/sensor_number_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -29,14 +29,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:labelFor="@id/light_value"
-            android:text="@string/light_value_label" />
+            android:labelFor="@id/sensor_value"
+            android:text="@string/sensor_value_label" />
 
         <TextView
-            android:id="@+id/light_value"
+            android:id="@+id/sensor_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/light_value_default" />
+            android:text="@string/sensor_value_default" />
 
     </LinearLayout>
 

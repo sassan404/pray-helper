@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,8 @@ public class ChangeDetector extends ConstraintLayout {
     private TextView sensorValueTextView;
 
     private TextView modeTypeTextView;
+
+    private LinearLayout SensorValueContainer;
 
     private boolean isUnderLowThreshold = false;
     private double maxSensorValue = 1;
@@ -40,7 +43,7 @@ public class ChangeDetector extends ConstraintLayout {
         switch (mode) {
             case MANUAL:
                 modeTypeTextView.setText(R.string.manual_mode_active);
-                sensorValueTextView.setVisibility(View.GONE);
+                SensorValueContainer.setVisibility(View.GONE);
                 break;
             case LIGHT:
                 modeTypeTextView.setText(R.string.light_sensor_mode_active);
@@ -71,7 +74,8 @@ public class ChangeDetector extends ConstraintLayout {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.change_detector, this, true);
-        sensorValueTextView = findViewById(R.id.light_value);
+        SensorValueContainer = findViewById(R.id.sensor_number_container);
+        sensorValueTextView = findViewById(R.id.sensor_value);
         modeTypeTextView = findViewById(R.id.mode_type);
         resetCount();
     }

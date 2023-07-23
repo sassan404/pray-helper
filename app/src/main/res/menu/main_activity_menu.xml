@@ -4,4 +4,7 @@
     <item android:id="@+id/select_mode"
         android:title="@string/select_mode_menu_item"
         app:showAsAction="always" />
+    <item android:id="@+id/cancel_notifications"
+        android:title="silence notifications"
+        app:showAsAction="always"/>
 </menu>
