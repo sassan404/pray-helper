@@ -2,8 +2,8 @@
     <string name="app_name">المساعد في الصلاة</string>
     <string name="number_of_rukuu">0</string>
     <string name="rukuu_photo_description">صورة شخص وهو راكع</string>
-    <string name="light_value_label">مستوى الضوء: </string>
-    <string name="light_value_default">0</string>
+    <string name="sensor_value_label">قراءة الحساس: </string>
+    <string name="sensor_value_default">0</string>
     <string name="reset_button">توقف</string>
     <string name="manual_mode_active">أنت تستخدم الوضع اليدوي</string>
     <string name="light_sensor_mode_active">أنت تستخدم حساس الضوء</string>

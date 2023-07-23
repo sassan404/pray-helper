@@ -3,12 +3,16 @@ package com.sassan.salathelper;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 
 
 public class SensorSelectionActivity extends AppCompatActivity {
@@ -49,9 +53,19 @@ public class SensorSelectionActivity extends AppCompatActivity {
         proximitySensorMode.setOnClickListener(view -> proximitySensorMode.setChecked(true));
 
         modeDescription = findViewById(R.id.textViewUserChoice);
+        modeDescription.setMovementMethod(new ScrollingMovementMethod());
 
         proceedButton = findViewById(R.id.buttonProceed);
         proceedButton.setOnClickListener(view -> startMainActivity());
+
+        WindowInsetsControllerCompat windowInsetsController =
+                WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+        // Configure the behavior of the hidden system bars.
+        windowInsetsController.setSystemBarsBehavior(
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        );
+        windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
+
     }
 
     public void onModeSelection(RadioGroup radioGroup, int checkedId) {
