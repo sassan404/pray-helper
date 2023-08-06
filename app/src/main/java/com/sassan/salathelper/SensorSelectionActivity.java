@@ -1,21 +1,25 @@
 package com.sassan.salathelper;
 
+
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
-import android.widget.Button;
+import android.view.MenuItem;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class SensorSelectionActivity extends AppCompatActivity {
+
+public class SensorSelectionActivity extends AppCompatActivity implements BottomNavigationView.OnItemSelectedListener {
 
     private RadioButton manualMode;
     private RadioButton lightSensorMode;
@@ -23,7 +27,8 @@ public class SensorSelectionActivity extends AppCompatActivity {
     private Mode selectedMode;
     private TextView modeDescription;
 
-    private Button proceedButton;
+    private MenuItem proceedButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +60,9 @@ public class SensorSelectionActivity extends AppCompatActivity {
         modeDescription = findViewById(R.id.textViewUserChoice);
         modeDescription.setMovementMethod(new ScrollingMovementMethod());
 
-        proceedButton = findViewById(R.id.buttonProceed);
-        proceedButton.setOnClickListener(view -> startMainActivity());
+        BottomNavigationView bottomNavigationView = findViewById(R.id.sensor_selection_bottom_navigation);
+        bottomNavigationView.setOnItemSelectedListener(this);
+        proceedButton = bottomNavigationView.getMenu().findItem(R.id.buttonProceed);
 
         WindowInsetsControllerCompat windowInsetsController =
                 WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
@@ -66,7 +72,9 @@ public class SensorSelectionActivity extends AppCompatActivity {
         );
         windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
 
+        System.out.println("activity started");
     }
+
 
     public void onModeSelection(RadioGroup radioGroup, int checkedId) {
 
@@ -87,6 +95,17 @@ public class SensorSelectionActivity extends AppCompatActivity {
         Intent myIntent = new Intent(SensorSelectionActivity.this, MainActivity.class);
         myIntent.putExtra("mode", selectedMode);
         SensorSelectionActivity.this.startActivity(myIntent);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        System.out.println("Proceed button clicked out ");
+        if (item.getItemId() == R.id.buttonProceed) {
+            System.out.println("Proceed button clicked in ");
+            startMainActivity();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public enum Mode {
