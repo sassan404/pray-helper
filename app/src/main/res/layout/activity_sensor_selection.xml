@@ -67,24 +67,21 @@
         android:gravity="center"
         android:scrollbars="vertical"
         android:text="@string/no_mode_chosen"
-        app:layout_constraintBottom_toTopOf="@id/buttonProceed"
+        app:layout_constraintBottom_toTopOf="@id/sensor_selection_bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/radioGroupOptions" />
 
     <!-- Button to proceed to the next activity -->
-    <Button
-        android:id="@+id/buttonProceed"
-        android:layout_width="wrap_content"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/sensor_selection_bottom_navigation"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewUserChoice"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
-        android:enabled="false"
-        android:text="@string/proceed_mode"
+        android:layout_alignParentBottom="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewUserChoice" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewUserChoice"
+        app:menu="@menu/sensor_selection_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

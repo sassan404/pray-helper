@@ -2,11 +2,8 @@ package com.sassan.salathelper;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.WindowManager;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,11 +12,12 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.sassan.salathelper.sensors.LightSensor;
 import com.sassan.salathelper.sensors.ProximitySensor;
 import com.sassan.salathelper.sensors.SensorImplementation;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnItemSelectedListener {
 
     private SensorImplementation usedSensor;
 
@@ -40,10 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
         changeDetector = findViewById(R.id.light_change_detector);
 
-        Button resetButton = findViewById(R.id.reset_button);
-
-        resetButton.setOnClickListener(v -> resetCount());
-
+        BottomNavigationView bottomNavigationView = findViewById(R.id.main_activity_bottom_navigation);
+        bottomNavigationView.setOnItemSelectedListener(this);
 
         switch (mode) {
             case MANUAL:
@@ -101,18 +97,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.select_mode || item.getItemId() == android.R.id.home) {
             finish();
+            return true;
+        } else if (item.getItemId() == R.id.reset_button) {
+            resetCount();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_activity_menu, menu);
-        return true;
+    public void onBackPressed() {
+        finish();
     }
 }

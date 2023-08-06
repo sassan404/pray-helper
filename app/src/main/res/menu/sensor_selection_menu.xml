@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        app:showAsAction="always|withText"
+        android:id="@+id/buttonProceed"
+        android:enabled="false"
+        android:icon="@drawable/baseline_play_circle_filled_24"
+        android:title="@string/proceed_mode" />
+</menu>

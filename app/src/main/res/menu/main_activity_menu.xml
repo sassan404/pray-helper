@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/select_mode"
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/select_mode"
+        android:icon="@drawable/baseline_arrow_back_24"
         android:title="@string/select_mode_menu_item"
-        app:showAsAction="always" />
+        app:showAsAction="withText" />
+    <!-- Item for the "Silence Notifications" button -->
+    <item
+        android:id="@+id/reset_button"
+        android:icon="@drawable/reset_icon"
+        android:title="@string/reset_button"
+        app:showAsAction="withText" />
+    <item
+        android:id="@+id/menu_item_silence_notifications"
+        android:enabled="false"
+        android:icon="@drawable/baseline_do_not_disturb_on_total_silence_24"
+        android:title="@string/focus_mode_button"
+        android:tooltipText="@string/focus_mode_tooltip"
+        app:showAsAction="withText" />
 </menu>
