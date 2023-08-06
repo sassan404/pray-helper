@@ -15,6 +15,7 @@
     <item
         android:id="@+id/menu_item_silence_notifications"
         android:icon="@drawable/baseline_do_not_disturb_on_total_silence_24"
+        android:enabled="false"
         android:title="Silence"
         app:showAsAction="always" />
 </menu>
