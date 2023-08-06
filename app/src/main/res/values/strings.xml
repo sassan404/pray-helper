@@ -22,4 +22,6 @@
     <string name="sujud_image_description">Sujud image</string>
     <string name="arrow_image_description">arrow that represents a sajda</string>
     <string name="select_mode_menu_item">Select mode</string>
+    <string name="focus_mode_button">Coming soon!</string>
+    <string name="focus_mode_tooltip">Focus Mode</string>
 </resources>
