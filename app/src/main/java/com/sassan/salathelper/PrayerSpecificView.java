@@ -3,6 +3,7 @@ package com.sassan.salathelper;
 import android.content.Context;
 import android.os.Handler;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,6 +21,7 @@ public class PrayerSpecificView extends ConstraintLayout {
     private CountState sajdaCount = CountState.ZERO;
     private int changeCount = 1;
     private final Runnable updateCountRunnable = () -> {
+        Log.d("CountIncrementRunnable", "Incrementing count...");
         changeCount++;
         isUpdateScheduled = false;
         sajdaCount = CountState.ZERO;
@@ -57,7 +59,9 @@ public class PrayerSpecificView extends ConstraintLayout {
     }
 
     public void resetCount() {
-        handler.removeCallbacksAndMessages(updateCountRunnable);
+        Log.d("ResetCount", "Resetting the count");
+        handler.removeCallbacks(updateCountRunnable);
+        isUpdateScheduled = false;
         changeCount = 1;
         rukuuNumber.setText(String.valueOf(changeCount));
         firstArrow.setVisibility(View.INVISIBLE);
@@ -80,7 +84,8 @@ public class PrayerSpecificView extends ConstraintLayout {
                 secondArrow.setVisibility(View.VISIBLE);
                 if (!isUpdateScheduled) {
                     isUpdateScheduled = true;
-                    handler.postDelayed(updateCountRunnable, 15000);
+                    Log.d("UpdatePrayerCounter", "Scheduling the update runnable...");
+                    handler.postDelayed(updateCountRunnable, 5000);
                 }
                 break;
             default:
