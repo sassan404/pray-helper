@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         );
         windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
 
+        BottomNavBarResize.resizeBottomNavBar(bottomNavigationView, getResources());
 
     }
 

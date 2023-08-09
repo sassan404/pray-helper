@@ -10,6 +10,7 @@
         android:id="@+id/mode_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:autoSizePresetSizes="uniform"
         android:text="@string/mode_placeholder"
         app:layout_constraintBottom_toTopOf="@+id/sensor_number_container"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,6 +30,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:autoSizePresetSizes="uniform"
             android:labelFor="@id/sensor_value"
             android:text="@string/sensor_value_label" />
 
@@ -36,6 +38,7 @@
             android:id="@+id/sensor_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:autoSizePresetSizes="uniform"
             android:text="@string/sensor_value_default" />
 
     </LinearLayout>
