@@ -32,9 +32,9 @@
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="0.6"
+            android:autoSizeTextType="uniform"
             android:gravity="center"
-            android:text="@string/number_of_rukuu"
-            android:textSize="100sp" />
+            android:text="@string/number_of_rukuu" />
     </LinearLayout>
 
     <LinearLayout
@@ -54,7 +54,7 @@
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_weight="0.3"
-            android:contentDescription="@string/sujud_image_description"
+            android:contentDescription="@string/rukuu_photo_description"
             android:src="@raw/sujud" />
 
         <ImageView

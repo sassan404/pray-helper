@@ -72,6 +72,8 @@ public class SensorSelectionActivity extends AppCompatActivity implements Bottom
         );
         windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
 
+        BottomNavBarResize.resizeBottomNavBar(bottomNavigationView, getResources());
+
         System.out.println("activity started");
     }
 
