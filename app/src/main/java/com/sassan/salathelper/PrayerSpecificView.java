@@ -85,7 +85,8 @@ public class PrayerSpecificView extends ConstraintLayout {
                 if (!isUpdateScheduled) {
                     isUpdateScheduled = true;
                     Log.d("UpdatePrayerCounter", "Scheduling the update runnable...");
-                    handler.postDelayed(updateCountRunnable, 5000);
+                    int delayMillis = 12000;
+                    handler.postDelayed(updateCountRunnable, delayMillis);
                 }
                 break;
             default:
