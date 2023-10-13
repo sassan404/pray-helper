@@ -24,4 +24,6 @@
     <string name="select_mode_menu_item">Select mode</string>
     <string name="focus_mode_button">Coming soon!</string>
     <string name="focus_mode_tooltip">Focus Mode</string>
+    <string name="aqsa_photo">photo of al Aqsa mosque</string>
+    <string name="flag_of_palestine">flag of palestine</string>
 </resources>
